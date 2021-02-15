@@ -1,0 +1,58 @@
+Las extensiones reactives nos permiten tener informacion en tiempo real,
+Se pueden usar para: 
+    * Manejar eventos en la interfaz de usuario
+    * Cuando es necesario notificar sobre cambios
+    * En comunicacion con sockets
+    * En flujos de informacion-
+
+Piezas fundamentales de la programacion reactiva: 
+    * Observables = Fuente de informacion, pueden emitir multiples valores.
+        Pueden emitir errores, Pueden ser infinitos, finitos, sincronos
+        o asincronos.
+
+    * Subscribers = Estos se subscriben a un observable, consumen la data
+        del observable, pueden recinir los errores y eventos.
+
+    * Operators = Usados para transformar los observables como group,
+        map, scan.
+        Son usados para filtrar los observables como filter, distinct,
+        skip, debounce.
+        Usados para combinar observables o retornarlos
+
+Beneficios = 
+    evitar el callback
+    Trabajar de forma simple tareas asincronas
+    Uso de operadores para simplificar el trabajo
+    
+Diagramas de canicas
+    click$ = estandar observables con signo dolar
+------------------ = linea
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
