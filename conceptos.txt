@@ -28,7 +28,17 @@ Diagramas de canicas
     click$ = estandar observables con signo dolar
 ------------------ = linea
 
+Operadores = 
+* Of = este operador permite emitir valores en secuencia de Manera
+    sincrona cualquier tipo de dato, una vez ya emite todos los valores
+    automaticamente se completa el observable
+* fromEvent = permite crear observables en base a un event target o del
+    document ejemplo con el scroll o cambio dimension pantalla, click
 
+* range = crea un observable con secuencia de numeros en base a un rango
+    pueden ser asincronos
+
+*
 
 
 
