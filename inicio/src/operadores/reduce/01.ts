@@ -1,5 +1,5 @@
-import { interval, from } from 'rxjs';
-import { reduce, take, tap, scan } from 'rxjs/operators';
+import { interval } from 'rxjs';
+import { reduce, take, tap } from 'rxjs/operators';
 
 const numbers = [1, 2, 3, 4, 5];
 
@@ -7,11 +7,15 @@ const totalFunction = (acumulador: number, actual: number) => {
     return acumulador + actual;
 }
 
-from(numbers)
+const total = numbers.reduce(totalFunction, 0);
+ 
+//---------Con rudycer-------
+
+interval(1000)
 .pipe(
-    // tap(val => console.log('valor: ', val)),
+    tap(val => console.log('valor: ', val)),
     take(5),
-    scan(totalFunction) // emite esa emision
+    reduce(totalFunction)
 )
 .subscribe({
     next: val => console.log('fin reduce: ', val),

@@ -1,8 +1,8 @@
 import { Observable, interval, Subscriber, timer } from 'rxjs';
 
 const observer = {
-    next: val => console.log(val);
-    complete: () => console.log('complete');
+    next: val => console.log(val),
+    complete: () => console.log('complete')
 }
 
 const interval$ = interval(1000);

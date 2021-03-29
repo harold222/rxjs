@@ -29,6 +29,9 @@ Diagramas de canicas
 ------------------ = linea
 
 Operadores = 
+Es una funcion que esta presente en un observable y sirve para
+unirlos, cambiarlos, evualarlos, etc
+
 * Of = este operador permite emitir valores en secuencia de Manera
     sincrona cualquier tipo de dato, una vez ya emite todos los valores
     automaticamente se completa el observable
@@ -38,12 +41,20 @@ Operadores =
 * range = crea un observable con secuencia de numeros en base a un rango
     pueden ser asincronos
 
-*
+* map = transforma lo que emite un observble en algo que se desee.
 
+* pluck = cuando necesito extraer un valor de un objeto y que este sea la salida del observable ej: 
+    objeto = { v: 1 } .pluck('v') = respuesta 1
 
+* mapTo = Permite transformar la entrada en una salida especifica
+    ejemplo = entradas 1, 2, 3, 4 y siempre la salida sera 0 o una letra o un objeto
 
+* Reduce = tiene la misma funcionalidad que el reduce de jaavascript, 
+es una funcion acumuladora a las funciones producidas por el observable
+no se tienen emisiones hasta que se complete el observable
 
-
+* Scan = hace lo mismo que el reduce con la diferencia que cuando los valores
+son emitidos por el observable inmediatamente emite el valor
 
 
 
