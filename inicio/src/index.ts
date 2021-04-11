@@ -1,22 +1,29 @@
-import { interval, from } from 'rxjs';
-import { reduce, take, tap, scan } from 'rxjs/operators';
+import { of } from 'rxjs';
+import { ajax, AjaxError } from 'rxjs/ajax';
+import { catchError, pluck } from 'rxjs/operators';
 
-const numbers = [1, 2, 3, 4, 5];
+const petition = 'https://api.github.com/users?per_page=5';
+const fetchPromise = fetch(petition); //trabaja en base a promesas
 
-const totalFunction = (acumulador: number, actual: number) => {
-    return acumulador + actual;
-}
+// fetchPromise.then(resp => resp.json())
+// .then(console.log)
+// .catch();
 
-from(numbers)
+const errorCatch = (err: AjaxError) => {
+    console.warn(err.message);
+    // return of({});
+    return of([]);//podria retronar otra peticion, otro observable, arreglo, etc
+};
+
+
+ajax(petition)
 .pipe(
-    // tap(val => console.log('valor: ', val)),
-    take(5),
-    scan(totalFunction) // emite esa emision
+    pluck('response'),
+    catchError(errorCatch),//atrapa cualquier error que emite el observable
 )
-.subscribe({
-    next: val => console.log('fin reduce: ', val),
-    complete: () => console.log('complete')
-});
+.subscribe(console.log)
+
+
 
 
 
