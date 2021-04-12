@@ -76,7 +76,10 @@ espera el tiempo determinado, en este se puede tomar el primer y ultimo valor
 al debounceTime
 
 ----------------------------------------------------------
-PETICIONES RXJS/AJAX
+TRANSFORMACION = 
+
+* mergeAll = trabaja con observables que internamente retornan observables
+se completa hasta que todos los observables hijos se terminen
 
 
 

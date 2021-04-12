@@ -1,13 +1,10 @@
+//GET JSON
+
 import { of } from 'rxjs';
 import { ajax, AjaxError } from 'rxjs/ajax';
 import { catchError, pluck } from 'rxjs/operators';
 
-const petition = 'https://api.github.com/users?per_page=5';
-const fetchPromise = fetch(petition); //trabaja en base a promesas
-
-// fetchPromise.then(resp => resp.json())
-// .then(console.log)
-// .catch();
+const petition = 'https://httpbin.org/delay/1';
 
 const errorCatch = (err: AjaxError) => {
     console.warn(err.message);
@@ -16,9 +13,39 @@ const errorCatch = (err: AjaxError) => {
 };
 
 
-ajax(petition)
+ajax.getJSON(petition, {
+    'Content-Type': 'application/json',
+    'Authorization': '12345678'
+})
 .pipe(
-    pluck('response'),
-    catchError(errorCatch),//atrapa cualquier error que emite el observable
+    catchError(errorCatch)
 )
 .subscribe(console.log)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
