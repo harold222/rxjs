@@ -81,6 +81,55 @@ TRANSFORMACION =
 * mergeAll = trabaja con observables que internamente retornan observables
 se completa hasta que todos los observables hijos se terminen
 
+* mergeMap = operador de aplanamiento, no posee limite de suscripciones
+internas y pueden estar activas conjuntamente
+
+* switchMap = retorna un observable como el mergeMap se diferencia en que
+solo mantiene un solo observable activo lo cual los demas observables 
+se completaran 
+
+* ConcatMap = sirve para concatenar los observables resultantes solo permite
+tener un observble actibo como el switchMap la diferencia es que si
+el observble padre emite un valor y el hijo no se ha a completado este se espera
+hasta que se complete ese observable para emitir ese nuevo valor
+
+* exhaustMap = parecido al switchMap pero esta solo tomara la primera suscripcion y no la ultima
+
+________________________________________________
+
+Combinacion
+
+* startWith = permite realizar una emision antes de que el observable
+empieze a emitir, ej startWith('a'), su primera emision sera siempre a
+
+* endWith = lo mismo pero su ultima emision sera el valor que desee string,
+numero, funcion o otro observable
+
+* concat = funcion que recibe observables, arreglos con esto se crea un 
+nuevo observable, lo diferente de este es que si se pasa de argumento
+3 observables diferentes, cada uno de ellos se resuelve de manera lineal
+ si el primer observable no se completa, tampoco lo haran los otros 2.
+
+* mege = recibe uno o mas observables se diferencia del concat ya que el resultado de este sera la combinancion de los observables, se completa
+hasta que todos los observables dentro se completen.
+
+* forkJoin = recibe varios argumentos de observables, la diferencia de este
+es que todos los observables que tome deben de ser finitos ya que este solo
+retornara el valor de las emisiones de los observables cuando se completen
+todos los observables, este emitira los valores en formato array o un objeto,
+si uno de los observables falla toda las demas peticiones no se ejecutaran
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
