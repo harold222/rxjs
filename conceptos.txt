@@ -117,7 +117,7 @@ hasta que todos los observables dentro se completen.
 es que todos los observables que tome deben de ser finitos ya que este solo
 retornara el valor de las emisiones de los observables cuando se completen
 todos los observables, este emitira los valores en formato array o un objeto,
-si uno de los observables falla toda las demas peticiones no se ejecutaran
+si uno de los observables falla toda las demas peticiones no se ejecutarans
 
 
 
